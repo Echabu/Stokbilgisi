@@ -1,0 +1,2 @@
+# Stokbilgisi
+Stok
