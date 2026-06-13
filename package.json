@@ -1,0 +1,34 @@
+{
+  "name": "stokplanlayici",
+  "productName": "Stok Planlayıcı",
+  "version": "1.0.0",
+  "description": "Trendyol mağazası için stok kayıt uygulaması.",
+  "main": "main.js",
+  "author": "",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable",
+    "package": "electron-packager . \"Stok Planlayici\" --platform=win32 --arch=x64 --out=release --overwrite --asar=false"
+  },
+  "build": {
+    "appId": "com.trendyol.stokplanlayici",
+    "productName": "Stok Planlayıcı",
+    "files": [
+      "**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ]
+    }
+  },
+  "devDependencies": {
+    "asar": "^3.2.0",
+    "electron": "^26.0.0",
+    "electron-builder": "^24.5.0",
+    "electron-packager": "^17.1.2"
+  }
+}

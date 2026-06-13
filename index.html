@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stok Planlayıcı</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div>
+          <h1>Trendyol Stok Kaydı</h1>
+          <p>Ürünleriniz maliyetini ve stok miktarını hızlıca takip edin.</p>
+        </div>
+        <div>
+          <p>Ürün ekleyin, + / - butonlarıyla stok değiştirin.</p>
+        </div>
+      </div>
+
+      <section class="card">
+        <h2>Yeni Ürün Ekle</h2>
+        <div class="form-grid">
+          <label>
+            Ürün Adı
+            <input id="productName" type="text" placeholder="Örn. Oversize Tişört" />
+          </label>
+          <label>
+            Birim Maliyet (₺)
+            <input id="productCost" type="text" placeholder="Örn. 125.50" />
+          </label>
+          <label>
+            Stok Miktarı
+            <input id="productStock" type="number" placeholder="Örn. 10" min="0" />
+          </label>
+          <label>
+            Ürün Görseli (isteğe bağlı)
+            <input id="productImage" type="file" accept="image/*" />
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button id="addProductBtn" class="button-primary" type="button">Stok Kaydet</button>
+          <button id="clearBtn" class="button-secondary" type="button">Alanları Temizle</button>
+        </div>
+        <div class="button-row">
+          <button id="exportBtn" class="button-secondary" type="button">Dışa Aktar / Yedekle</button>
+          <button id="importBtn" class="button-secondary" type="button">Yedekten Yükle</button>
+          <button id="exportExcelBtn" class="button-secondary" type="button">Tüm stoğu Excel'e Aktar</button>
+        </div>
+        <input id="importFileInput" type="file" accept=".json" hidden />
+      </section>
+
+      <section class="summary">
+        <div class="summary-card">
+          <h3>Ürün Sayısı</h3>
+          <p id="totalItems">0</p>
+        </div>
+        <div class="summary-card">
+          <h3>Toplam Stok</h3>
+          <p id="totalStock">0</p>
+        </div>
+        <div class="summary-card">
+          <h3>Toplam Maliyet</h3>
+          <p id="totalCost">₺0.00</p>
+        </div>
+      </section>
+
+      <section class="table-wrapper">
+        <div class="table-controls">
+          <label>
+            Ürün Ara
+            <input id="searchInput" type="search" placeholder="Ürün adına göre ara..." />
+          </label>
+          <div class="pagination">
+            <span id="resultInfo" class="result-info">0 sonuç bulundu</span>
+            <div class="page-buttons">
+              <button id="prevPageBtn" class="button-secondary" type="button">← Önceki</button>
+              <span id="pageInfo" class="page-info">Sayfa 1 / 1</span>
+              <button id="nextPageBtn" class="button-secondary" type="button">Sonraki →</button>
+            </div>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Ürün</th>
+              <th>Birim Maliyet</th>
+              <th>Stok</th>
+              <th>Toplam Değer</th>
+              <th>Stok İşlemleri</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+        </table>
+      </section>
+
+      <div id="imageModal" class="image-modal" hidden>
+        <div class="image-modal-content">
+          <button id="closeImageModal" class="modal-close" type="button">×</button>
+          <img id="modalImage" src="" alt="Ürün Görseli" />
+        </div>
+      </div>
+
+      <div id="confirmModal" class="confirm-modal" hidden>
+        <div class="confirm-modal-content">
+          <p id="confirmMessage">Bu ürünü stoktan kaldırmak istediğinizden emin misiniz?</p>
+          <div class="confirm-buttons">
+            <button id="confirmYes" class="button-primary" type="button">Evet</button>
+            <button id="confirmNo" class="button-secondary" type="button">Hayır</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

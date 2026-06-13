@@ -1,0 +1,8 @@
+﻿node : Packaging app for platform win32 x64 using electron v26.6.10
+At line:1 char:58
++ ... lanlayıcı'; node .\node_modules\electron-packager\bin\electron-packag ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Packaging app f...ectron v26.6.10 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
